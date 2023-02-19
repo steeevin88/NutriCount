@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calorie Tracker</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <script src="script.js" type="text/javascript" defer></script>
+</head>
+
+<body>
+  <div class="columns is-centered is-variable is-2">
+    <!-- Column 1 -->
+    <div class="column is-one-third">
+      <div id="piechart"></div>
+    </div>
+    <!-- Column 2 -->
+    <div class="column is-one-third">
+      <div class="hero-body">
+        <p id="nutricount" class="has-text-weight-bold title is-size-1 has-text-centered">NutriCount</p>
+        <hr>
+        <p class="title is-size-1 has-text-danger-dark has-text-centered has-text-weight-bold"> <b id="total">0 </b>
+          calories</p>
+        <p class="subtitle has-text-centered is-size-4">Calculate your daily caloric intake!</p>
+        <button class="button is-fullwidth is-rounded is-large is-responsive" id="calcButton"> CALCULATE CALORIES
+        </button>
+        <button class="button is-fullwidth is-rounded is-small is-responsive" id="resetButton"> RESET CALORIES </button>
+				<button class="button is-fullwidth is-rounded is-small is-responsive" id="clearButton"> CLEAR CALORIES </button>
+      </div>
+    </div>
+    <!-- Column 3 -->
+    <div class="column is-one-half">
+      <div class="hero-body">
+        <p style="color:#f17578" class="has-text-weight-bold is-size-5 has-text-centered">Fruits - <b id="fruit">0</b>
+          cal. (<b id="fruitPercentage">0.00</b>%)</p>
+        <p style="color:#6bc954" class="has-text-weight-bold is-size-5 has-text-centered">Vegetables - <b
+            id="vegetable">0</b> cal. (<b id="vegetablePercentage">0.00</b>%)</p>
+        <p style="color:#ca8272" class="has-text-weight-bold is-size-5 has-text-centered">Proteins - <b
+            id="protein">0</b> cal. (<b id="proteinPercentage">0.00</b>%)</p>
+        <p style="color:#e5b66f" class="has-text-weight-bold is-size-5 has-text-centered">Grains - <b id="grains">0</b>
+          cal. (<b id="grainsPercentage">0.00</b>%)</p>
+        <p style="color:#f9e262" class="has-text-weight-bold is-size-5 has-text-centered">Dairy - <b id="dairy">0</b>
+          cal. (<b id="dairyPercentage">0.00</b>%)</p>
+        <p style="color:#fcf5ca" class="has-text-weight-bold is-size-5 has-text-centered">Fats - <b id="fats">0</b> cal.
+          (<b id="fatsPercentage">0.00</b>%)</p>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- ROW 1 -->
+  <div class="columns is-centered is-variable is-5">
+    <!-- Column 1 -->
+    <div class="column is-one-quarter">
+      <!-- CARD -->
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="https://i.imgur.com/Pg0Mdqg.jpg" alt="Strawberry">
+          </figure>
+        </div>
+        <div class="card-content" style="background-color:#f17578">
+          <div class=" media">
+            <div class="media-content">
+              <p class="title is-4">Fruits</p>
+              <p class="subtitle is-6">ex. apples, bananas</p>
+            </div>
+          </div>
+
+          <div class="content">
+            <input class="input fruitBox" type="number" placeholder="Input Custom Calories" id="calories"
+              name="calories" min="0">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Column 2 -->
+    <div class="column is-one-quarter">
+      <!-- CARD -->
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img
+              src="https://media.discordapp.net/attachments/282592508800925698/1076702137725227149/veg_drawing.jpg?width=929&height=697"
+              alt="Vegetables">
+          </figure>
+        </div>
+        <div class="card-content" style="background-color:#6bc954">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4">Vegetables</p>
+              <p class="subtitle is-6">ex. broccoli, carrots</p>
+            </div>
+          </div>
+
+          <div class="content">
+            <input class="input vegetableBox" type="number" placeholder="Input Custom Calories" id="calories"
+              name="calories" min="0">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Column 3 -->
+    <div class="column is-one-quarter">
+      <!-- CARD -->
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img
+              src="https://media.discordapp.net/attachments/282592508800925698/1076699762247618590/protein_drawing_2.jpg?width=929&height=697"
+              alt="Ham">
+          </figure>
+        </div>
+        <div class="card-content" style="background-color:#ca8272">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4">Proteins</p>
+              <p class="subtitle is-6">ex. beef, chicken</p>
+            </div>
+          </div>
+
+          <div class="content">
+            <input class="input proteinBox" type="number" placeholder="Input Custom Calories" id="calories"
+              name="calories" min="0">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 2 -->
+  <div class="columns is-centered is-variable is-5">
+    <!-- Column 1 -->
+    <div class="column is-one-quarter">
+      <!-- CARD -->
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="https://i.imgur.com/l17yTxv.jpg" alt="Bread">
+          </figure>
+        </div>
+        <div class="card-content" style="background-color:#e5b66f">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4">Grains</p>
+              <p class="subtitle is-6">ex. rice, quinoa</p>
+            </div>
+          </div>
+
+          <div class="content">
+            <input class="input grainsBox" type="number" placeholder="Input Custom Calories" id="calories"
+              name="calories" min="0">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Column 2 -->
+    <div class="column is-one-quarter">
+      <!-- CARD -->
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img
+              src="https://media.discordapp.net/attachments/282592508800925698/1076689316249612461/dairy_drawing.jpg?width=929&height=697"
+              alt="Milk and Cheese">
+          </figure>
+        </div>
+        <div class="card-content" style="background-color:#f9e262">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4">Dairy</p>
+              <p class="subtitle is-6">ex. milk, cheese</p>
+            </div>
+          </div>
+
+          <div class="content">
+            <input class="input dairyBox" type="number" placeholder="Input Custom Calories" id="calories"
+              name="calories" min="0">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Column 3 -->
+    <div class="column is-one-quarter">
+      <!-- CARD -->
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="https://i.imgur.com/EzSdDcL.jpg" alt="Butter">
+          </figure>
+        </div>
+        <div class="card-content" style="background-color:#fcf5ca">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4">Fats</p>
+              <p class="subtitle is-6">ex. butter, olive oil</p>
+            </div>
+          </div>
+
+          <div class="content">
+            <input class="input fatsBox" type="number" placeholder="Input Custom Calories" id="calories" name="calories"
+              min="0">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <!-- EXPLANATION -->
+  <footer class="footer notification mt-5 mb-0">
+    <div class="content has-text-centered">
+      <p class="subtitle">For a healthy diet, approximately <b>2000</b> calories should be consumed a day. However, it's
+        not just the calories that should be taken into account.</p>
+      <p class="subtitle">The following proportions for different foods are recommended: fats 5%, proteins
+        10%, dairy 10%, fruits 20%, vegetables 25%, grains 30%.</p>
+      <p class="subtitle is-3">Using these guidelines, you are eating <strong
+          id="health-percentage">0.00</strong><strong>%</strong> healthy.</p>
+    </div>
+  </footer>
+</body>
+
+</html>
